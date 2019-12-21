@@ -1,14 +1,26 @@
 .jumbotron {
+  background: rgba(245, 223, 183, 0.2); 
+  background-size: cover;
+  height: 700px;
+  margin: 0;
+  width: 100%;
+}
+
+body {
+  color:black;
+  background-color:white;
   background-image: url('/assets/carte_bg.jpeg');
+  background-attachment: fixed;
   background-size: cover;
   
-  margin: 0;
-}
+  }
+
 
 .container-hero {
   width: 100%;
   padding-top: 40px;
-  margin-left: 40px;
+  margin-left: 20px;
+  
 }
 
 .hero-logo {
@@ -23,9 +35,9 @@
 }
 
 .title-slogan {
-  font-size: 30px;
-  font-weight: 500;
-  color: #181f49;
+  font-size: 400%;
+  font-weight: bolder;
+  color: #131733;
   text-transform: uppercase;
   text-align: center;
   margin-top: 8%;

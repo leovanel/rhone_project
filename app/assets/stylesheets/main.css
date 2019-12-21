@@ -15,7 +15,7 @@ body {
 }
 
 .bg-map {
-  background: url('/assets/carte_bg.jpeg') no-repeat center center fixed;
+  background: url() no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;

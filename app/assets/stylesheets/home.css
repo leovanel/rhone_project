@@ -297,3 +297,13 @@ body {
   height: 300px;
   border: 0;
 }
+
+.card-header {
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.card {
+  border: none;
+  padding: 4px;
+}

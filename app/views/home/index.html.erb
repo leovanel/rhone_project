@@ -1,48 +1,10 @@
 <div class="wrapper">
-  
 
-        <nav class ="dark bg-dark" , id="sidebar" >
-        
-          
-          <ul class="list-unstyled components">
-          <p>Dummy Heading</p>
-            <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                  
-                  <a href="#">Home 1</a>
-                </li>
-                <li>
-                  <a href="#">Home 2</a>
-                </li>
-                <li>
-                  <a href="#">Home 3</a>
-                </li>
-              </ul>
-            </li>
-            
-            <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                  <a href="#">Page 1</a>
-                </li>
-                <li>
-                  <a href="#">Page 2</a>
-                </li>
-                <li>
-                  <a href="#">Page 3</a>
-                </li>
-              </ul>
-            </li>
-            
-          </ul>
-        </nav>
   <div class="container">
-    <div class="row">    
-      <div class="col-12">
-  
+    <div class="row"> 
+      <div class="col-md-1 col-sm-12 p-0">  
+      </div>
+      <div class="col-md-10 col-sm-12 p-0">    
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -78,13 +40,60 @@
           </a>
           <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+             <span class="sr-only">Next</span>
           </a>
         </div>
       </div>
     </div>
   </div>
-</div> 
+  <div class="col-md-2 ">
 
+
+  
+
+        <nav class ="dark bg-dark" , id="sidebar" >
+        </br>
+        
+
+        <div class="card mb-4 bg-dark">
+
+          <div class="card-header  bg-dark">
+
+            <h5 class="m-0 font-weight-bold ">18ème Siècle:</h5>
+
+          </div>
+
+          <%= image_tag(('/assets/photo_rhone5.jpg'), class:"card-img-top p-1") %>
+        </div>
+        
+          
+          <ul class="list-unstyled components">
+          <p>Liste</p>
+            <li class="active">
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                  
+                  <a href="#">liste 1</a>
+                </li>
+                
+              </ul>
+            </li>
+            
+            <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                  <a href="#">Page 1</a>
+                </li>
+               
+              </ul>
+            </li>
+            
+          </ul>
+        </nav>
+  </div> 
+</div> 
+  
   
 

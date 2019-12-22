@@ -7,12 +7,31 @@
 }
 
 body {
-  color:black;
-  background-color:rgba(255, 255, 255, 0.801);
+  
   background-image: url('/assets/carte_bg.jpeg');
   background-attachment: fixed;
   background-size: cover;
+}
+
+.wrapper {
+  background-color:rgba(241, 234, 234, 0.308);
+  display: flex;
+  align-items: stretch;
+}
+
+
+
+#sidebar {
+  margin-top: 50px;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
   
+  transition: all 0.3s;
+}
+
+#sidebar.active {
+  margin-left: -250px;
 }
 
 .carousel-inner>.carousel-item >img {
@@ -247,7 +266,9 @@ body {
 }
 
 .carousel-item {
+  margin-top:100px;
   height: 420px;
+  width: 100%;
 }
 
 .feature {

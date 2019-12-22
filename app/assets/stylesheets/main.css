@@ -14,10 +14,3 @@ body {
   flex: 1;
 }
 
-.bg-map {
-  background: url() no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-}

@@ -11,28 +11,36 @@ body {
   background-image: url('/assets/carte_bg.jpeg');
   background-attachment: fixed;
   background-size: cover;
+  
+  
 }
 
 .wrapper {
   background-color:rgba(241, 234, 234, 0.308);
   display: flex;
   align-items: stretch;
+ 
+  width:100%;
+    
+
 }
 
 
 
 #sidebar {
   margin-top: 50px;
-  min-width: 250px;
+  
+  
+  margin-left: 15px;
+  
+  min-width: 100%;
   max-width: 250px;
   min-height: 100vh;
   
   transition: all 0.3s;
 }
 
-#sidebar.active {
-  margin-left: -250px;
-}
+
 
 .carousel-inner>.carousel-item >img {
   display: block;
@@ -305,5 +313,12 @@ body {
 
 .card {
   border: none;
-  padding: 4px;
+  padding: 20px;
+  
+}
+
+.container {
+  width: 100%;
+  padding-top: 10px;
+  
 }

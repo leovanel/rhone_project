@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
  
   devise_for :users
-  root 'home#index'
+
+  resources :rubrics
+  resources :articles
+  root 'rubrics#index'
 end

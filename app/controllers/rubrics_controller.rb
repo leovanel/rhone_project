@@ -7,6 +7,9 @@ class RubricsController < ApplicationController
   
   def show
 
+    @rubric = Rubric.find(params[:id])
+    
+
   end
   
   def new

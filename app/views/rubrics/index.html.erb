@@ -46,52 +46,23 @@
       </div>
     </div>
   </div>
-  <div class="col-3 ">
-
-
-  
+  <div class="col-3 ">  
 
         <nav class ="dark bg-dark " , id="sidebar" >
         </br>
         
-
+        <% @rubrics.each do |rubric| %>
         <div class="card mb-4 bg-dark">
 
           <div class="card-header  bg-dark">
-
-            <h5 class="m-0 font-weight-bold ">18ème Siècle:</h5>
-            
+            <h5 class="m-0 font-weight-bold "><%= rubric.title %>:</h5>        
 
           </div>
 
-          <%= image_tag(('/assets/photo_rhone5.jpg'), class:"card-img-top p-0") %>
-        </div>
-        
+          <%= image_tag((rubric.img_url), class:"card-img-top p-0") %>
+        </div>  
+        <%end%>               
           
-          <ul class="list-unstyled components">
-          <p>Liste</p>
-            <li class="active">
-              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-              <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                  
-                  <a href="#">liste 1</a>
-                </li>
-                
-              </ul>
-            </li>
-            
-            <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                  <a href="#">Page 1</a>
-                </li>
-               
-              </ul>
-            </li>
-            
-          </ul>
         </nav>
   </div> 
 </div> 

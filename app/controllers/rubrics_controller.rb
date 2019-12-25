@@ -1,6 +1,7 @@
 class RubricsController < ApplicationController
 
   def index
+    @rubrics = Rubric.all
 
   end
   

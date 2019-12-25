@@ -48,21 +48,22 @@
   </div>
   <div class="col-3 ">  
 
-        <nav class ="dark bg-dark " , id="sidebar" >
-        </br>
-        
-        <% @rubrics.each do |rubric| %>
-        <div class="card mb-4 bg-dark">
-
-          <div class="card-header  bg-dark">
-            <h5 class="m-0 font-weight-bold "><%= rubric.title %>:</h5>        
-
-          </div>
-
-          <%= image_tag((rubric.img_url), class:"card-img-top p-0") %>
-        </div>  
-        <%end%>               
+    <nav class ="dark bg-dark " , id="sidebar" >
+      </br>
+      
+      <% @rubrics.each do |rubric| %>
+      
+      <div class="card mb-4 bg-dark">
+        <div class="card-header  bg-dark">
+          <h5 class="m-0 font-weight-bold "><%= rubric.title %>:</h5>        
+        </div>
+            
+        <%= link_to image_tag(rubric.img_url , class: 'card-img-top p-0') , rubric_path(rubric.id)  %>
+            
+      </div> 
+      
+      <%end%>               
           
-        </nav>
+    </nav>
   </div> 
 </div> 

@@ -7,8 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Article.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('articles')
+
 Rubric.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('rubrics')
+
+User.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
+
+
+
 
 require 'faker'
 
@@ -27,3 +37,25 @@ n=0
   rubric.save
   puts "rubric n°#{i} done"
 end
+
+#### User #####
+
+user = User.new(email: "leoside@numericable.fr", password: "vallabregues", is_admin: true)
+user.save
+puts "user n°1 done"
+
+#### Articles #####
+
+@rubrics = Rubric.all
+@rubrics.each do |rubric|
+  (0..3).each do |a|
+    b= ['1','2','3','4','5','6']
+    n= b.shuffle.first
+    article = Article.new(title: Faker::Ancient.god, user_id: User.first.id,
+    body: Faker::Lorem.paragraphs, rubric_id: rubric.id, head_img_url:"/assets/photo_rhone#{n}.jpg" ) 
+    article.save
+    puts "article n°#{a} done for rubric #{rubric.title}"
+  end
+
+end
+

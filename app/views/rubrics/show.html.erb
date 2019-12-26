@@ -4,23 +4,66 @@
 
       <div class="row">
     
-        <div class="col-lg-8 col-sm-12">
+        <div class="col-lg-10 col-sm-12">
+          <div class="container">
+            <div class="card border-0 shadow my-5" id="rubric">
+              <div class="card-body p-5">     
 
-          <div class="card">
+                <div class="column">
+              
+                  <div class="col-lg-8 col-sm-12">
 
-            <div class="card-header dark bg-dark">
+                    <div class="card">
 
-              <h2 class="m-0 dark"><%= @rubric.title %></h2>
+                      <div class="card-header dark bg-dark">
 
-            </div>
+                        <h2 class="m-0 dark"><%= @rubric.title %></h2>
 
-            <div class="card-body">
+                      </div>
 
-              <%= image_tag((@rubric.img_url),  class:"img-fluid rounded") %>
-            </div>  
+                      <div class="card-body">
+
+                        <%= image_tag((@rubric.img_url),  class:"img-fluid rounded") %>
+                      </div>  
+                    </div> 
+                  </div> 
+                </div> 
+              </div>     
+            </div> 
+          </div> 
+          <div class="container">
+            <div class="card border-0 shadow my-5" id="rubric">
+              <div class="card-body p-5">     
+
+                <div class="row">
+              
+                  <div class="col-lg-10 col-sm-12 h-25">
+
+                    <div class="card">
+
+                      <div class="card-header dark bg-dark">
+
+                        <h2 class="m-0 dark"><%= @rubric.title %></h2>
+
+                      </div>
+
+                      <div class="card-body">
+
+                        <%= image_tag((@rubric.img_url),  class:"img-fluid rounded") %>
+                      </div>  
+                    </div> 
+                  </div> 
+                </div> 
+              </div>     
+            </div> 
           </div> 
         </div> 
       </div> 
     </div>     
   </div> 
 </div> 
+
+
+
+
+          

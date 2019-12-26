@@ -34,7 +34,7 @@
           
           <div class="container">
           
-            <div class="card border-0 shadow mt-n5" id="article">
+            <div class="card border-0 shadow mt-n5 mb-5" id="article">
               <div class="card-body p-0">     
 
                 <div class="row h-25">
@@ -50,9 +50,9 @@
 
                       </div>
 
-                      <div class="card-body">
+                      <div class="card-body">                                        
 
-                        <%= image_tag((article.head_img_url),  class:"card-img-top p-0") %>
+                        <%= link_to image_tag(article.head_img_url, class:"card-img-top p-0"), article_path(article.id) %>
                       </div>  
                     </div> 
                   </div> 

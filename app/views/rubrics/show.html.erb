@@ -1,17 +1,16 @@
 <div class="container">
-  <div class="card border-0 shadow my-5" id="rubric">
-    <div class="card-body p-5">     
+     
 
-      <div class="row">
+      <div class="column">
     
-        <div class="col-lg-10 col-sm-12">
+        <div class="col-lg-12 col-sm-12">
           <div class="container">
             <div class="card border-0 shadow my-5" id="rubric">
-              <div class="card-body p-5">     
+              <div class="card-body p-0">     
 
-                <div class="column">
+                <div class="row">
               
-                  <div class="col-lg-8 col-sm-12">
+                  <div class="col-lg-10 col-sm-12">
 
                     <div class="card">
 
@@ -31,36 +30,42 @@
               </div>     
             </div> 
           </div> 
-          <div class="container">
-            <div class="card border-0 shadow my-5" id="rubric">
-              <div class="card-body p-5">     
 
-                <div class="row">
+          
+          <div class="container">
+          
+            <div class="card border-0 shadow mt-n5" id="article">
+              <div class="card-body p-0">     
+
+                <div class="row h-25">
+                  <% @rubric.articles.each do |article| %>
               
-                  <div class="col-lg-10 col-sm-12 h-25">
+                  <div class="col-md-3 col-sm-12 ">
 
                     <div class="card">
 
                       <div class="card-header dark bg-dark">
 
-                        <h2 class="m-0 dark"><%= @rubric.title %></h2>
+                        <p class="m-0 dark"><%= article.title %></p>
 
                       </div>
 
                       <div class="card-body">
 
-                        <%= image_tag((@rubric.img_url),  class:"img-fluid rounded") %>
+                        <%= image_tag((article.head_img_url),  class:"card-img-top p-0") %>
                       </div>  
                     </div> 
                   </div> 
+                  <%end%>
                 </div> 
               </div>     
             </div> 
           </div> 
         </div> 
+        
       </div> 
-    </div>     
-  </div> 
+      
+   
 </div> 
 
 

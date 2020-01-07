@@ -50,7 +50,11 @@
 
     <nav class ="dark bg-dark " , id="sidebar" >
       </br>
-      
+      <% if current_user != nil %>
+      <% if current_user.is_admin %>
+      <%=link_to "Ajouter une rubrique", new_admin_rubric_path,  class: 'btn btn-outline-secondary font-weight-bold ml-3 my-2 my-sm-0 ' %>
+      <%end%>
+      <%end%>
       <% @rubrics.each do |rubric| %>
       
       <div class="card mb-4 bg-dark">

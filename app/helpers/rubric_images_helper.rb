@@ -1,0 +1,2 @@
+module RubricImagesHelper
+end

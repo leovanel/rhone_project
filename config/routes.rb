@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :rubrics 
+  resources :rubrics do
+    resources :rubric_images, only: [:create]
+  end
   resources :articles
 
 

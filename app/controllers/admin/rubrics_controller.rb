@@ -16,9 +16,17 @@ class Admin::RubricsController < ApplicationController
 
   end
 
+  
   def create
+   
+    @rubric = Rubric.create(title: "", img_url: "")
+    
+    render :show
+    
+    
 
   end
+  
 
   def edit
 

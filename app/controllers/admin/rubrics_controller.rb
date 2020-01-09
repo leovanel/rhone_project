@@ -19,10 +19,16 @@ class Admin::RubricsController < ApplicationController
   
   def create
    
-    @rubric = Rubric.create(title: "", img_url: "")
     
-    render :show
-    
+    @rubric = Rubric.new(title: params[:title])
+    if @rubric.save
+      flash[:success] = 'Rubric successfully created'
+      render :show
+       
+    else
+      flash.now[:danger] = 'Something went wrong, please check your input'
+      render new_admin_rubric_path
+    end
     
 
   end

@@ -35,7 +35,12 @@
           <div class="container">
           
             <div class="card border-0 shadow mt-n5 mb-5" id="article">
-              <div class="card-body p-0">     
+              <div class="card-body p-0">
+              <% if current_user != nil %>
+              <% if current_user.is_admin %>
+                <%=link_to "Ajouter une rubrique",new_admin_rubric_path,class: 'btn btn-outline-secondary font-weight-bold ml-3 my-2 my-sm-0' %>
+              <%end%>
+              <%end%>     
 
                 <div class="row h-25">
                   <% @rubric.articles.each do |article| %>

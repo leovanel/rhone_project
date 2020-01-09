@@ -1,7 +1,7 @@
 class RubricsController < ApplicationController
 
   def index
-    @rubrics = Rubric.all
+    @rubrics = Rubric.order(title: :desc).all
 
   end
   

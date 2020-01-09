@@ -15,6 +15,11 @@
               <p>=== Veuillez uploader une image pour cette rubrique ===</p>
             <% end%>  
             
+            <h3>uploader une image ?</h3>
+              <%= form_tag admin_rubric_rubric_images_path(params[:id]), multipart: true do %>
+                <%= file_field_tag :rubric_image %>
+                <%= submit_tag "Upload" %>
+              <% end %>
           </div> 
         </div> 
       </div> 

@@ -55,15 +55,18 @@
        <%=link_to "Ajouter une rubrique",new_admin_rubric_path,class: 'btn btn-outline-secondary font-weight-bold ml-3 my-2 my-sm-0' %>
       <%end%>
       <%end%>
+      
       <% @rubrics.each do |rubric| %>
       
       <div class="card mb-4 bg-dark">
         <div class="card-header  bg-dark">
           <h5 class="m-0 font-weight-bold "><%= rubric.title %>:</h5>        
         </div>
-            
-        <%= link_to image_tag(rubric.img_url , class: 'card-img-top p-0') , rubric_path(rubric.id)  %>
-            
+        <% if  rubric.img_url.present? %>    
+          <%= link_to image_tag(rubric.img_url , class: 'card-img-top p-0') , rubric_path(rubric.id)  %>
+        <%else%>
+        <%= link_to image_tag(rubric.rubric_image , class: 'card-img-top p-0') , rubric_path(rubric.id) %>
+         <%end%>
       </div> 
       
       <%end%>               

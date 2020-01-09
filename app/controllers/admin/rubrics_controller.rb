@@ -23,7 +23,7 @@ class Admin::RubricsController < ApplicationController
     @rubric = Rubric.new(title: params[:title])
     if @rubric.save
       flash[:success] = 'Rubric successfully created'
-      render :show
+      redirect_to (admin_rubric_path(@rubric.id))
        
     else
       flash.now[:danger] = 'Something went wrong, please check your input'
@@ -45,5 +45,8 @@ class Admin::RubricsController < ApplicationController
   def destroy
 
   end
+
+
+ 
 
 end

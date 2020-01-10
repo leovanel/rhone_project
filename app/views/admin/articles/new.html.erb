@@ -27,18 +27,19 @@ t.string "title"
                 <%= f.text_field :title, class: 'form-control' %>
               </div>
 
-            <h3 class="text-center">Saisis le titre du nouvel article :</h3>
+            <h3 class="text-center">Saisis le contenu de l'article :</h3>
             <hr>
 
               <div class= 'form-group'>
                 
-                <%= f.text_field :body, class: 'form-control' %>
+                <%= f.text_area :body, class: 'form-control' %>
               </div>
   
   
               <hr>
   
               <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :rubric_id, value: params[:id] %>
               <%= f.submit "Créer l'article et ajouter une image", class: 'btn btn-lg btn-success btn-rounded' %>
   
             <% end %>

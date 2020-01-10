@@ -11,19 +11,24 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def new
+    puts params
 
   end
 
   def create
 
-    @article = Article.new(title: params[:title],body: params[:body],user_id : params[:user_id],rubric_id: rubrics_params[:id])
+    
+    @rubric= Rubric.find (params[:rubric_id])
+    @user = User.find (params[:user_id])
+
+    @article = Article.new(title: params[:title], body: params[:body], user: @user, rubric: @rubric )
     if @article.save
-      flash[:success] = 'Rubric successfully created'
+      flash[:success] = 'Article successfully created'
       redirect_to (admin_article_path(@article.id))
        
     else
       flash.now[:danger] = 'Something went wrong, please check your input'
-      render new_admin_rubric_path
+      render new_admin_article_path
     end
 
   end

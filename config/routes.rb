@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :rubrics do
       resources :rubric_images, only: [:create]
     end
-    resources :articles
+    resources :articles do
+      resources :article_images, only: [:create]
+    end
   end
 
   devise_for :users

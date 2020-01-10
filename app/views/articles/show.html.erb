@@ -8,7 +8,7 @@
             <div class="card-header dark bg-dark">
               <h2 class="m-0 dark"><%= @article.title %></h2>
             </div>
-            <%= image_tag((@article.head_img_url),  class:"img-fluid rounded") %>
+            <%= image_tag((@article.article_images.first),  class:"img-fluid rounded") %>
             <div class="card-body p-2 ">
             <p class="lead"><%= @article.body %></p>
             </div>  

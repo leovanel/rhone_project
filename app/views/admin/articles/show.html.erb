@@ -8,6 +8,17 @@
             <div class="card-header dark bg-dark">
               <h2 class="m-0 dark"><%= @article.title %></h2>
             </div>
+            <%if @article.article_images.attached?%>
+              <%= image_tag @article.article_images.first, alt: 'article_images' %>
+            <%else%>
+              <p>=== Veuillez uploader une image pour cet article ===</p>
+            <% end%>  
+
+            <h3>uploader une image ?</h3>
+              <%= form_tag admin_article_article_images_path(params[:id]), multipart: true do %>
+                <%= file_field_tag :article_images %>
+                <%= submit_tag "Upload" %>
+              <% end %>
             
             <div class="card-body p-2 ">
             <p class="lead"><%= @article.body %></p>

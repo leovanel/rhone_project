@@ -38,7 +38,7 @@
               <div class="card-body p-0">
               <% if current_user != nil %>
               <% if current_user.is_admin %>
-                <%=link_to "Ajouter un article",new_admin_article_path,class: 'btn btn-outline-secondary font-weight-bold ml-3 my-2 my-sm-0' %>
+                <%=link_to "Ajouter un article",new_admin_article_path(:id  => @rubric.id ),class: 'btn btn-outline-secondary font-weight-bold ml-3 my-2 my-sm-0' %>
               <%end%>
               <%end%>     
 
@@ -57,7 +57,7 @@
 
                       <div class="card-body">                                        
 
-                        <%= link_to image_tag(article.head_img_url, class:"card-img-top p-0"), article_path(article.id) %>
+                        <%= link_to image_tag(article.article_images.first, class:"card-img-top p-0"), article_path(article.id) %>
                       </div>  
                     </div> 
                   </div> 

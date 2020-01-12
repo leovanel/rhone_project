@@ -23,16 +23,16 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 require 'faker'
 
 
-s=19
+s=17
 n=0
 
 #### Rubric #####
 
-(0..5).each do |i|
+(0..4).each do |i|
   s=s-1
   n=n+1
   rubric = Rubric.new(title: "#{s}ème siècle",
-  img_url: "/assets/photo_rhone#{n}.jpg"
+  img_url: "/assets/photo_rhone#{n}.PNG"
   )
   rubric.save
   puts "rubric n°#{i} done"
@@ -49,10 +49,10 @@ puts "user n°1 done"
 @rubrics = Rubric.all
 @rubrics.each do |rubric|
   (0..3).each do |a|
-    b= ['1','2','3','4','5','6']
+    b= ['0','1','2','3']
     n= b.shuffle.first
     article = Article.new(title: Faker::Ancient.god, user_id: User.first.id,
-    body: Faker::Lorem.paragraphs, rubric_id: rubric.id, head_img_url:"/assets/photo_rhone#{n}.jpg" ) 
+    body: Faker::Lorem.paragraphs, rubric_id: rubric.id, head_img_url:"/assets/photo_rhone#{n}.PNG" ) 
     article.save
     puts "article n°#{a} done for rubric #{rubric.title}"
   end

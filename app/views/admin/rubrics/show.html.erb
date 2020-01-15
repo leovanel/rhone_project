@@ -14,14 +14,14 @@
 
                     <div class="card">
 
-                    <%if @rubric.title.length > 0 %>
+                    <%if @rubric.title.present? %>
 
                       <div class="card-header dark bg-dark">
 
                         <h2 class="m-0 dark"><%= @rubric.title %></h2>
 
                       </div>
-                      <%end%>
+                    <%end%>
 
                       <div class="card-body">
 

@@ -36,13 +36,35 @@ class Admin::RubricsController < ApplicationController
 
   def edit
 
+    @rubric = Rubric.find(params[:id])
+
   end
 
   def update
+    @rubric = Rubric.find(params[:id])
+
+    
+    
+    if @rubric.update(title:rubric_params[:title])
+      flash[:success] = 'Rubric successfully created'
+      redirect_to (rubric_path(@rubric.id))
+       
+    else
+      flash.now[:danger] = 'Something went wrong, please check your input'
+      render :edit
+    end
 
   end
 
   def destroy
+
+  end
+
+  private
+
+  def rubric_params
+
+    params.require(:rubric).permit(:title)
 
   end
 

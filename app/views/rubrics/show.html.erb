@@ -19,6 +19,12 @@
                         <h2 class="m-0 dark"><%= @rubric.title %></h2>
 
                       </div>
+                      <% if current_user != nil %>
+                      <% if current_user.is_admin %>
+                      </br>
+                        <%=link_to "Modifier le titre / la carte",edit_admin_rubric_path(@rubric.id ),class: 'btn btn-outline-secondary font-weight-bold ml-3 my-2 my-sm-0' %>
+                      <%end%>
+                      <%end%>
 
                       <div class="card-body">
 

@@ -1,25 +1,46 @@
 <div class="container">
-  <div class="card border-0 shadow my-5" id="rubric">
-    <div class="card-body p-0">     
-      <div class="row">
-          
-        <div class="col-lg-10 col-sm-12">
-          <div class="card">
-            <div class="card-header dark bg-dark">
-              <h2 class="m-0 dark"><%= @rubric.title %></h2>
-            </div>
+     
 
-            <%if @rubric.rubric_image.attached?%>
-              <%= image_tag @rubric.rubric_image, alt: 'rubric_image' %>
-            <%else%>
-              <p>=== Veuillez uploader une image pour cette rubrique ===</p>
-            <% end%>  
-            
-            <h3>uploader une image ?</h3>
-              <%= form_tag admin_rubric_rubric_images_path(params[:id]), multipart: true do %>
-                <%= file_field_tag :rubric_image %>
-                <%= submit_tag "Upload" %>
-              <% end %>
+      <div class="column">
+    
+        <div class="col-lg-12 col-sm-12">
+          <div class="container">
+            <div class="card border-0 shadow my-5" id="rubric">
+              <div class="card-body p-0">     
+
+                <div class="row">
+              
+                  <div class="col-lg-10 col-sm-12">
+
+                    <div class="card">
+
+                    <%if @rubric.title.length > 0 %>
+
+                      <div class="card-header dark bg-dark">
+
+                        <h2 class="m-0 dark"><%= @rubric.title %></h2>
+
+                      </div>
+                      <%end%>
+
+                      <div class="card-body">
+
+
+                        <%if @rubric.rubric_image.attached?%>
+                          <%= image_tag @rubric.rubric_image, alt: 'rubric_image',class:"img-fluid rounded" %>
+                        <%else%>
+                          <h5 class="font-weight-bold">=== Veuillez uploader une image pour cette rubrique ===</h5>
+                          </br>
+                          <%= form_tag admin_rubric_rubric_images_path(params[:id]), multipart: true do %>
+                            <%= file_field_tag :rubric_image %>
+                            <%= submit_tag "Upload" %>
+                          <% end %>
+                        <% end%>  
+                      </div> 
+
+                </div>      
+              </div>
+            </div>      
           </div> 
         </div> 
       </div> 

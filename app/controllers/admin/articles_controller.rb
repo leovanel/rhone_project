@@ -41,13 +41,35 @@ class Admin::ArticlesController < ApplicationController
 
   def update
 
+    @article = Article.find(params[:id])
+    
+    @user = User.find (current_user.id)
+    
+
+   
+    if @article.update(title:article_params[:title], body:article_params[:body])
+      flash[:success] = 'Article successfully created'
+      redirect_to (admin_article_path(@article.id))
+       
+    else
+      flash.now[:danger] = 'Something went wrong, please check your input'
+      render new_admin_article_path
+    end
+
   end
 
   def destroy
 
   end
 
-  private  
+  private
+
+  def article_params
+
+    params.require(:article).permit(:title, :body)
+
+  end
+
 
   
 

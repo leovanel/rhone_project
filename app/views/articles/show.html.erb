@@ -27,8 +27,10 @@
 
             <% if current_user != nil %>
             <% if current_user.is_admin %>
+            <hr>
+            <p class= "font-weight-bold">Ajouter un nouveau paragraphe?</p>
               
-              <%= form_with model: @rubric,  url: admin_rubric_path(@rubric.id), method: 'put',local: true, class: 'col-5 offset-5 mx-auto' do |f| %>
+              <%= form_with model: @paragraph,  url: admin_article_paragraphs_path(params[:id] ), method: 'post',local: true, class: 'col-12 offset-12 mx-auto' do |f| %>
                       
                 <%if flash[:danger] %>
                   <div class="alert alert-danger text-center" role="alert">
@@ -39,17 +41,17 @@
     
                 <div class= 'form-group'>
                   
-                  <%= f.text_field :title, class: 'form-control' %>
+                  <%= f.text_area :body, class: 'form-control' %>
                 </div>
     
     
                 <hr>
     
                 
-                <%= f.submit "Enregistrer les modifications", class: 'btn btn-lg btn-success btn-rounded' %>
+                <%= f.submit "Enregistrer", class: 'btn btn-lg btn-success btn-rounded' %>
     
               <% end %>
-              <%=link_to "Ajouter un paragraphe",admin_article_path(@article.id ),class: 'btn btn-outline-secondary font-weight-bold ml-3 my-2 my-sm-0' %>
+              
             <%end%>
             <%end%>
             </div>  

@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   def show
 
     @article = Article.find(params[:id])
-    @paragraphs = Paragraph.all
+    @paragraphs = @article.paragraphs.all
     @paragraph = Paragraph.new
 
   end

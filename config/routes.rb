@@ -6,13 +6,18 @@ Rails.application.routes.draw do
     end
     resources :articles do
       resources :article_images, only: [:create]
+      resources :paragraphs, only:[:create,:update] do
+        resources :rubric_images, only: [:create]
+      end
     end
   end
 
   devise_for :users
 
   resources :rubrics 
-  resources :articles
+  resources :articles do
+    resources :paragraphs
+  end
 
 
   root 'rubrics#index'

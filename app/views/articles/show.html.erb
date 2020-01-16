@@ -25,6 +25,15 @@
 
             </br>
 
+            <% if @article.paragraphs.present? %>
+
+              <% @article.paragraphs.each do |paragraph|%>
+                <p class="lead"><%= paragraph.body%></p>
+              <% end %>
+            <% end %>
+
+            </br>
+            
             <% if current_user != nil %>
             <% if current_user.is_admin %>
             <hr>

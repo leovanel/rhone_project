@@ -18,10 +18,10 @@ class Admin::ArticlesController < ApplicationController
   def create
 
     
-    @rubric= Rubric.find (params[:rubric_id])
-    @user = User.find (params[:user_id])
+    @rubric= Rubric.find (params[:id])
+    @user = User.find (current_user.id)
 
-    @article = Article.new(title: params[:title], body: params[:body], user: @user, rubric: @rubric )
+    @article = Article.new(title: "", body: "", user: @user, rubric: @rubric )
     if @article.save
       flash[:success] = 'Article successfully created'
       redirect_to (admin_article_path(@article.id))
@@ -35,6 +35,8 @@ class Admin::ArticlesController < ApplicationController
 
   def edit
 
+    @article = Article.find(params[:id])
+
   end
 
   def update
@@ -47,9 +49,6 @@ class Admin::ArticlesController < ApplicationController
 
   private  
 
-  def rubrics_params
-
-    params.require(:rubric).permit(:id)
-  end
+  
 
 end

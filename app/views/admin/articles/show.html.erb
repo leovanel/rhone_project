@@ -1,33 +1,49 @@
 <div class="container">
-  <div class="card border-0 shadow my-5" id="rubric">
-    <div class="card-body p-0">     
-      <div class="row">
-          
-        <div class="col-lg-10 col-sm-12">
-          <div class="card">
-            <div class="card-header dark bg-dark">
-              <h2 class="m-0 dark"><%= @article.title %></h2>
-            </div>
-            <%if @article.article_images.attached?%>
-              <%= image_tag @article.article_images.first, alt: 'article_images' %>
-            <%else%>
-              <p>=== Veuillez uploader une image pour cet article ===</p>
-            <% end%>  
+     
 
-            <h3>uploader une image ?</h3>
-              <%= form_tag admin_article_article_images_path(params[:id]), multipart: true do %>
-                <%= file_field_tag :article_images %>
-                <%= submit_tag "Upload" %>
-              <% end %>
-            
-            <div class="card-body p-2 ">
-            <p class="lead"><%= @article.body %></p>
-            </div>  
+      <div class="column">
+    
+        <div class="col-lg-12 col-sm-12">
+          <div class="container">
+            <div class="card border-0 shadow my-5" id="article">
+              <div class="card-body p-0">     
+
+                <div class="row">
+              
+                  <div class="col-lg-10 col-sm-12">
+
+                    <div class="card">
+
+                    <%if @article.title.present? %>
+
+                      <div class="card-header dark bg-dark">
+
+                        <h2 class="m-0 dark"><%= @article.title %></h2>
+
+                      </div>
+                    <%end%>
+
+                      <div class="card-body">
+
+
+                        <%if @article.article_images.attached?%>
+                          <%= image_tag @article.article_images.first, alt: 'article_images',class:"img-fluid rounded" %>
+                        <%else%>
+                          <h5 class="font-weight-bold">=== Veuillez uploader une carte pour cet article ===</h5>
+                          </br>
+                          <%= form_tag admin_article_article_images_path(params[:id]), multipart: true do %>
+                            <%= file_field_tag :article_images %>
+                            <%= submit_tag "Upload" %>
+                          <% end %>
+                        <% end%>  
+                      </div> 
+
+                </div>      
+              </div>
+            </div>      
           </div> 
         </div> 
       </div> 
     </div>     
   </div> 
 </div> 
-
-

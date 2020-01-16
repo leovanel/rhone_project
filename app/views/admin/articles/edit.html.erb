@@ -1,0 +1,82 @@
+<div class="container">
+     
+
+      <div class="column">
+    
+        <div class="col-lg-12 col-sm-12">
+          <div class="container">
+            <div class="card border-0 shadow my-5" id="rubric">
+              <div class="card-body p-0">     
+
+                <div class="row">
+              
+                  <div class="col-lg-10 col-sm-12">
+
+                    <div class="card">
+
+                    <%if @rubric.title.present?%>
+
+                      <div class="card-header dark bg-dark">
+
+                        <h2 class="m-0 dark"><%= @rubric.title %></h2>
+
+                      </div>
+                      <h3 class="text-center">Changer le titre de la rubrique :</h3>
+                    <%else%>
+                      <h3 class="text-center">Saisis le titre de la nouvelle rubrique :</h3>
+                    <%end%>
+                      
+                      <hr>
+            
+                      <%= form_with model: @rubric,  url: admin_rubric_path(@rubric.id), method: 'put',local: true, class: 'col-5 offset-5 mx-auto' do |f| %>
+                      
+                        <%if flash[:danger] %>
+                          <div class="alert alert-danger text-center" role="alert">
+                            <%=flash[:danger] %>
+                          </div>
+                        <% end %>
+                                            
+            
+                        <div class= 'form-group'>
+                          
+                          <%= f.text_field :title, class: 'form-control' %>
+                        </div>
+            
+            
+                        <hr>
+            
+                        
+                        <%= f.submit "Enregistrer les modifications", class: 'btn btn-lg btn-success btn-rounded' %>
+            
+                      <% end %>
+
+                      <div class="card-body">
+
+
+                        <%if @rubric.rubric_image.attached?%>
+                          <%= image_tag @rubric.rubric_image, alt: 'rubric_image',class:"img-fluid rounded" %>
+                          <h5 class="font-weight-bold">=== Changer de carte? ===</h5>
+                          <%= form_tag admin_rubric_rubric_images_path(params[:id]), multipart: true do %>
+                            <%= file_field_tag :rubric_image %>
+                            <%= submit_tag "Upload" %>
+                          <% end %>
+
+                        <%else%>
+                          <h5 class="font-weight-bold">=== Veuillez uploader une carte pour cette rubrique ===</h5>
+                          </br>
+                          <%= form_tag admin_rubric_rubric_images_path(params[:id]), multipart: true do %>
+                            <%= file_field_tag :rubric_image %>
+                            <%= submit_tag "Upload" %>
+                          <% end %>
+                        <% end%>  
+                      </div> 
+
+                </div>      
+              </div>
+            </div>      
+          </div> 
+        </div> 
+      </div> 
+    </div>     
+  </div> 
+</div> 

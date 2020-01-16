@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_123538) do
+ActiveRecord::Schema.define(version: 2020_01_16_092907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2020_01_08_123538) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "paragraphs", force: :cascade do |t|
+    t.bigint "article_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_paragraphs_on_article_id"
+  end
+
   create_table "rubrics", force: :cascade do |t|
     t.string "title"
     t.string "img_url"
@@ -71,4 +79,5 @@ ActiveRecord::Schema.define(version: 2020_01_08_123538) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "rubrics"
   add_foreign_key "articles", "users"
+  add_foreign_key "paragraphs", "articles"
 end

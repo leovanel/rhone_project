@@ -20,15 +20,25 @@
             <%= image_tag((@article.article_images.first),  class:"img-fluid rounded") %>
 
             </br>
+            </br>
 
+            <div> 
             <p class="lead"><%= @article.body %></p>
+            </div>
 
             </br>
 
             <% if @article.paragraphs.present? %>
 
+            
               <% @article.paragraphs.each do |paragraph|%>
+                
                 <p class="lead"><%= paragraph.body%></p>
+                <%if paragraph.ph_image.attached?%>
+                  <%= image_tag paragraph.ph_image, alt: 'ph_image',class:"img-fluid rounded" %>
+                <% end %>
+
+                </br>
               <% end %>
             <% end %>
 

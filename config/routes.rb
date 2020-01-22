@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :articles do
       resources :article_images, only: [:create]
       resources :paragraphs, only:[:create,:update] do
-        resources :rubric_images, only: [:create]
+        resources :ph_images, only: [:create]
       end
     end
   end
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :rubrics 
   resources :articles do
-    resources :paragraphs
+    resources :paragraphs 
   end
 
 

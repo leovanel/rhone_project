@@ -36,6 +36,7 @@ class Admin::ArticlesController < ApplicationController
   def edit
 
     @article = Article.find(params[:id])
+    
 
   end
 
@@ -49,7 +50,7 @@ class Admin::ArticlesController < ApplicationController
    
     if @article.update(title:article_params[:title], body:article_params[:body])
       flash[:success] = 'Article successfully created'
-      redirect_to (admin_article_path(@article.id))
+      redirect_to (article_path(@article.id))
        
     else
       flash.now[:danger] = 'Something went wrong, please check your input'

@@ -14,98 +14,108 @@
 
                     <div class="card">
 
-                    <%if @article.title.present?%>
+                      <%if @article.title.present?%>
 
-                      <div class="card-header dark bg-dark">
+                        <h3 class= "text-center">Changer le titre de l'article:</h3>
+                      <%else%>
 
-                        <h2 class="m-0 dark"><%= @article.title %></h2>
-
-                      </div>
-                      <h3 class="text-center">Changer le titre de l'article' :</h3>
-                    <%else%>
-                      <h3 class="text-center">Saisis le titre du nouvel article :</h3>
-                    <%end%>
+                        <h3 class="text-center">Saisis le titre du nouvel article:</h3>
+                      <%end%>                        
                       
-                      <hr>
-            
-                      <%= form_with model: @article,  url: admin_article_path(@article.id), method: 'put',local: true, class: 'col-5 offset-5 mx-auto' do |f| %>
-                      
-                        <%if flash[:danger] %>
-                          <div class="alert alert-danger text-center" role="alert">
-                            <%=flash[:danger] %>
+                      <div class="card-body">                      
+              
+                        <%= form_with model: @article,  url: admin_article_path(@article.id), method: 'put',local: true, class: 'col-12 offset-12 mx-auto' do |f| %>
+                          <hr>
+                          <%if flash[:danger] %>
+                            <div class="alert alert-danger text-center" role="alert">
+                              <%=flash[:danger] %>
+                            </div>
+                          <% end %>
+                                                    
+                    
+                          <div class= 'form-group'>
+                                
+                            <%= f.text_field :title, class: 'form-control' %>
                           </div>
-                        <% end %>
-                                            
-            
-                        <div class= 'form-group'>
+                    
+                    
+                          <hr> 
                           
-                          <%= f.text_field :title, class: 'form-control' %>
-                        </div>
-            
-            
-                        <hr>
-            
-                        
-                        
+                          <div>
+                              
+                            <%if @article.article_images.attached?%>
+                              <%= image_tag @article.article_images.first, alt: 'article_image',class:"img-fluid rounded" %>  
+                                
+                            <%else%>
+                                <h5 class="font-weight-bold">=== Veuillez uploader une carte pour cet article ===</h5>
+                                </br>
+                                <%= form_tag admin_article_article_images_path(params[:id]), multipart: true do %>
+                                  <%= file_field_tag :article_images %>
+                                  <%= submit_tag "Upload" %>
+                                <% end %>
+                            <% end%> 
+                          </div> 
 
-                      <div class="card-body">
-
-
-                        <%if @article.article_images.attached?%>
-                          <%= image_tag @article.article_images.first, alt: 'article_image',class:"img-fluid rounded" %>
-                          <h5 class="font-weight-bold">=== ajouter une carte? ===</h5>
-                          <%= form_tag admin_article_article_images_path(params[:id]), multipart: true do %>
-                            <%= file_field_tag :article_images %>
-                            <%= submit_tag "Upload" %>
-                          <% end %>
-
-                        <%else%>
-                          <h5 class="font-weight-bold">=== Veuillez uploader une carte pour cet article ===</h5>
+                          <hr>
                           </br>
-                          <%= form_tag admin_article_article_images_path(params[:id]), multipart: true do %>
-                            <%= file_field_tag :article_images %>
-                            <%= submit_tag "Upload" %>
-                          <% end %>
-                        <% end%>  
-
-                        <hr>
-                        </br>
-                        </br>
-                        
-                        <%if @article.body.present?%>
-                        <div> 
-
+                              
+                                  
+                          <%if @article.body.present?%>
+                                  
+                            <h3 class="text-center ">modifier le texte :</h3>
+                          <%else%>
+                            <h3 class="text-center">Saisis un texte :</h3>
+                          <%end%>
+                                    
+                          <hr>
                       
-
-                        <p><%= @article.body %></p>
-
-                      </div>
-                      <h3 class="text-center">modifier le texte :</h3>
-                    <%else%>
-                      <h3 class="text-center">Saisis un texte :</h3>
-                    <%end%>
+                          <div class= 'form-group'>
+                                    
+                            <%= f.text_area :body, class: 'form-control' %>
+                          </div>
+                              
+                          <%= f.submit "Enregistrer les modifications", class: 'btn btn-lg btn-success btn-rounded' %>
                       
-                      <hr>
-            
-                                                               
-            
-                        <div class= 'form-group'>
-                          
-                          <%= f.text_area :body, class: 'form-control' %>
-                        </div>
-                        
-                        <div class= 'form-group'>
-                          
-                        
-                        </div>
-            
-            
-                        <hr>
-                        <%= f.submit "Enregistrer les modifications", class: 'btn btn-lg btn-success btn-rounded' %>
-            
                         <% end %>
-                        </div> 
+                            
+                            
+                        </br>
+                        </br>
+                        <% if @article.paragraphs.present? %>
+                
+                          <% @article.paragraphs.each do |paragraph|%>
+                            <div class="border border-dark rounded p-2">
+                            <p class="lead"><%= paragraph.body%></p>
+                            <% paragraph.id %>
+                            <hr>
+                            
+
+                            <%if paragraph.ph_image.attached?%>
+                            <%= image_tag paragraph.ph_image, alt: 'ph_image',class:"img-fluid rounded" %>
+                            <p class="font-weight-bold">=== changer de carte pour ce paragraphe? ===</p>
+                            <%= form_tag admin_article_paragraph_ph_images_path(params[:id],(paragraph.id)), multipart: true do %>
+                              <%= file_field_tag :ph_image %>
+                              <%= submit_tag "Upload" %>
+                            <% end %>
+                          <%else%>
+                            <p class="font-weight-bold">=== Uploader une carte pour ce paragraphe? ===</p>
+                            
+                            <%= form_tag admin_article_paragraph_ph_images_path(params[:id],(paragraph.id)), multipart: true do %>
+                              <%= file_field_tag :ph_image %>
+                              <%= submit_tag "Upload" %>
+                            <% end %>
+                          <% end%>  
+
+                            </div>
+                            </br>
+                          <% end %>
+                        <% end %>
+                            
+                
+                            
                       </div> 
+                    </div> 
+                  </div> 
 
                 </div>      
               </div>
@@ -113,6 +123,5 @@
           </div> 
         </div> 
       </div> 
-    </div>     
-  </div> 
+   
 </div> 

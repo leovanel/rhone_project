@@ -54,7 +54,7 @@ class Admin::ArticlesController < ApplicationController
        
     else
       flash.now[:danger] = 'Something went wrong, please check your input'
-      render new_admin_article_path
+      render :edit
     end
 
   end

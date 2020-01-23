@@ -84,7 +84,7 @@
                         <% if @article.paragraphs.present? %>
                 
                           <% @article.paragraphs.each do |paragraph|%>
-                            <%= form_with model: paragraph,  url: admin_article_paragraphs_path(@article.id,paragraph.id), method: 'put',local: true, class: 'col-12 offset-12 mx-auto p-0 ' do |f| %>
+                            <%= form_with model: paragraph,  url: admin_article_paragraph_path(@article.id,paragraph.id), method: 'put',local: true, class: 'col-12 offset-12 mx-auto p-0 ' do |f| %>
                               <hr>
                               <%if flash[:danger] %>
                                 <div class="alert alert-danger text-center" role="alert">

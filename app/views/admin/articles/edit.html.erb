@@ -24,7 +24,7 @@
                       
                       <div class="card-body">                      
               
-                        <%= form_with model: @article,  url: admin_article_path(@article.id), method: 'put',local: true, class: 'col-12 offset-12 mx-auto' do |f| %>
+                        <%= form_with model: @article,  url: admin_article_path(@article.id), method: 'put',local: true, class: 'col-12 offset-12 mx-auto p-0' do |f| %>
                           <hr>
                           <%if flash[:danger] %>
                             <div class="alert alert-danger text-center" role="alert">
@@ -74,7 +74,7 @@
                             <%= f.text_area :body, class: 'form-control' %>
                           </div>
                               
-                          <%= f.submit "Enregistrer les modifications", class: 'btn btn-lg btn-success btn-rounded' %>
+                          <%= f.submit "Enregistrer les modifications", class: 'btn  btn-success btn-rounded' %>
                       
                         <% end %>
                             
@@ -84,11 +84,28 @@
                         <% if @article.paragraphs.present? %>
                 
                           <% @article.paragraphs.each do |paragraph|%>
-                            <div class="border border-dark rounded p-2">
-                            <p class="lead"><%= paragraph.body%></p>
-                            <% paragraph.id %>
-                            <hr>
+                            <%= form_with model: paragraph,  url: admin_article_paragraphs_path(@article.id,paragraph.id), method: 'put',local: true, class: 'col-12 offset-12 mx-auto p-0 ' do |f| %>
+                              <hr>
+                              <%if flash[:danger] %>
+                                <div class="alert alert-danger text-center" role="alert">
+                                  <%=flash[:danger] %>
+                                </div>
+                              <% end %>
+                                                        
+                        
+                              <div class= 'form-group  m-0 '>
+                                    
+                              <%= f.text_area :body, class: 'form-control mb-1' %>
+                              </div>
+                              <%= f.submit "Enregistrer les modifications du paragraphe", class: 'btn  btn-success btn-rounded mt-0' %>
+                              
+                              <%end%>
+                            <div>
+                            </br>
                             
+                            <% paragraph.id %>
+
+                                                      
 
                             <%if paragraph.ph_image.attached?%>
                             <%= image_tag paragraph.ph_image, alt: 'ph_image',class:"img-fluid rounded" %>
